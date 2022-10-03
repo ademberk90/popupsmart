@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit'
-import test from "./slices/test"
 import accordion from "./slices/accordionIndex"
 import modal from "./slices/modal"
 
