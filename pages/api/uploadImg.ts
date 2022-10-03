@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+/*
 import fs from 'fs'
 import path from 'path'
 
@@ -21,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   let status = 200
   let resultBody = { status: 'ok', message: 'Files were uploaded successfully' }
 
-  /* Get files using formidable */
+
   const files = await new Promise<ProcessedFiles | undefined>((resolve, reject) => {
     // eslint-disable-next-line no-undef
     const form = new formidable.IncomingForm()
@@ -57,4 +58,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   })
 }
 
-export default handler
+export default handler */

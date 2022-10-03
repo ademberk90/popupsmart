@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+/* 
 import fs from 'fs'
 import path from 'path'
 
@@ -18,4 +19,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(200).send(imageBuffer)
 }
 
-export default handler
+export default handler */

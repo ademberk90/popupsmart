@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Image, {StaticImageData} from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import useSWR from 'swr'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import {
@@ -17,7 +17,7 @@ import {
   setInput3,
   setButton1,
   setButton2,
-  setImageUrl
+  setImageUrl,
 } from '../slices/modal'
 import dropCloud from '../public/dropCloud.png'
 import dropImage from '../public/dropImage.png'
@@ -52,10 +52,27 @@ const Content = (props: Props) => {
       form.append('file', files[0])
       const ext = files[0].name.split('.')[1].toLowerCase()
       // setImageURL(URL.createObjectURL(files[0]))
-      if (ext !== 'png') {
+      const acceptList = ['jpg','jpeg','png']
+
+      if (!acceptList.includes(ext)) {
         return
       }
     }
+
+    form.append('upload_preset', 'my-uploads')
+
+    const data = await fetch(
+      'https://api.cloudinary.com/v1_1/dg0vneqxf/image/upload',
+      {
+        method: 'POST',
+        body: form,
+      }
+    )
+      .then((r) => r.json())
+      .then((res) => {
+        dispatch(setImageUrl(res.secure_url))
+      })
+    /*
     const response = await fetch('/api/uploadImg', {
       method: 'POST',
       body: form,
@@ -68,7 +85,7 @@ const Content = (props: Props) => {
         console.log(data.newPath)
         dispatch(setImageUrl(process.env.BASE_URL + data.newPath.substring(8)));
       }
-    })
+    }) */
   }
 
   const inputHandleChange = (value: string, ind: number) => {
@@ -79,27 +96,25 @@ const Content = (props: Props) => {
       case 2:
         dispatch(setInput2(value))
         break
-        case 3:
-          dispatch(setInput3(value))
-          break
+      case 3:
+        dispatch(setInput3(value))
+        break
       default:
         break
     }
   }
 
-
   const descriptionHandleChange = (value: string, ind: number) => {
     switch (ind) {
       case 1:
-        
         dispatch(setDescription1(value))
         break
       case 2:
         dispatch(setDescription2(value))
         break
-        case 3:
-          dispatch(setDescription3(value))
-          break
+      case 3:
+        dispatch(setDescription3(value))
+        break
       default:
         break
     }
@@ -117,8 +132,6 @@ const Content = (props: Props) => {
         break
     }
   }
-
-  
 
   return (
     <div className="mt-20">
@@ -140,10 +153,9 @@ const Content = (props: Props) => {
             />
           </div>
           {[...new Array(areaSize[0]).keys()].map((item) => {
-              type ObjectKey = keyof typeof input;
-              const myVar = (`input${  item+1}`) as ObjectKey;
+            type ObjectKey = keyof typeof input
+            const myVar = `input${item + 1}` as ObjectKey
             return (
-              
               <input
                 key={item}
                 value={input[myVar] as string}
@@ -155,8 +167,8 @@ const Content = (props: Props) => {
             )
           })}
           {[...new Array(areaSize[1]).keys()].map((item) => {
-            type ObjectKey = keyof typeof description;
-            const myVar = (`description${  item+1}`) as ObjectKey;
+            type ObjectKey = keyof typeof description
+            const myVar = `description${item + 1}` as ObjectKey
             return (
               <input
                 key={item}
@@ -169,8 +181,8 @@ const Content = (props: Props) => {
             )
           })}
           {[...new Array(areaSize[2]).keys()].map((item) => {
-             type ObjectKey = keyof typeof button;
-             const myVar = (`button${item+1}`) as ObjectKey;
+            type ObjectKey = keyof typeof button
+            const myVar = `button${item + 1}` as ObjectKey
             return (
               <input
                 key={item}
