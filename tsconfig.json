@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "~image/*": ["public/upload/*"],
     },
     "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
