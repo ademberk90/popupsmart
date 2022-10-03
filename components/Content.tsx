@@ -56,7 +56,7 @@ const Content = (props: Props) => {
         return
       }
     }
-    const response = await fetch('/api/upload', {
+    const response = await fetch('/api/uploadImg', {
       method: 'POST',
       body: form,
       headers: {
