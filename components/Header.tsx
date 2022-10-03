@@ -4,24 +4,10 @@ import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import logo from '../public/logo.svg'
 import arrowDown from '../public/arrowDown.png'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  BookmarkSquareIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorArrowRaysIcon,
-  LifebuoyIcon,
-  PhoneIcon,
-  PlayIcon,
-  ShieldCheckIcon,
-  Squares2X2Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+
 
 type Props = {}
-console.log(process.env.BASE_URL)
+
 const Header = (props: Props) => {
   return (
     <nav className="flex py-6 items-center container-margin font-inter">

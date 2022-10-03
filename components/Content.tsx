@@ -38,7 +38,7 @@ const Content = (props: Props) => {
 
   const dispatch = useAppDispatch()
 
-  //const [imageURL, setImageURL] = useState<string | StaticImageData | null>('')
+  // const [imageURL, setImageURL] = useState<string | StaticImageData | null>('')
   const [hoverIndex, setHoverIndex] = useState<number>(1)
 
   const defaultButtonClass = 'py-2 px-4 m-1 rounded-lg'
@@ -51,7 +51,7 @@ const Content = (props: Props) => {
     if (files && files.length > 0) {
       form.append('file', files[0])
       const ext = files[0].name.split('.')[1].toLowerCase()
-      //setImageURL(URL.createObjectURL(files[0]))
+      // setImageURL(URL.createObjectURL(files[0]))
       if (ext !== 'png') {
         return
       }
@@ -62,7 +62,7 @@ const Content = (props: Props) => {
       headers: {
         type: 'image',
       },
-    }).then((response) => response.json())
+    }).then((res) => res.json())
     .then((data) => {
       if(data && data.newPath){
         console.log(data.newPath)
@@ -87,9 +87,6 @@ const Content = (props: Props) => {
     }
   }
 
-  useEffect(() => {
-    //setImageURL(defaultImg)
-  },[])
 
   const descriptionHandleChange = (value: string, ind: number) => {
     switch (ind) {
@@ -144,7 +141,7 @@ const Content = (props: Props) => {
           </div>
           {[...new Array(areaSize[0]).keys()].map((item) => {
               type ObjectKey = keyof typeof input;
-              let myVar = ('input' + (item+1)) as ObjectKey;
+              const myVar = (`input${  item+1}`) as ObjectKey;
             return (
               
               <input
@@ -159,7 +156,7 @@ const Content = (props: Props) => {
           })}
           {[...new Array(areaSize[1]).keys()].map((item) => {
             type ObjectKey = keyof typeof description;
-            let myVar = ('description' + (item+1)) as ObjectKey;
+            const myVar = (`description${  item+1}`) as ObjectKey;
             return (
               <input
                 key={item}
@@ -173,7 +170,7 @@ const Content = (props: Props) => {
           })}
           {[...new Array(areaSize[2]).keys()].map((item) => {
              type ObjectKey = keyof typeof button;
-             let myVar = ('button' + (item+1)) as ObjectKey;
+             const myVar = (`button${item+1}`) as ObjectKey;
             return (
               <input
                 key={item}

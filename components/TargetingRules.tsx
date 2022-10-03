@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import dropdown from '../public/dropdown.png'
@@ -93,11 +96,11 @@ const TargetingRules = (props: Props) => {
   // const [selectedLanguages, setSelectedLanguages] = useState<Language[]>([])
   const refDropdown = useRef<HTMLDivElement>(null)
 
-  /*const handleClickOutside = (event: Event) => {
+  /* const handleClickOutside = (event: Event) => {
     if (refDropdown.current && !refDropdown.current.contains(event.target as Node)) {
       setIsOpenDropdown(false)
     }
-  }*/
+  } */
 
   const handleLanguageClick = (lang: Language) => {
     if (!selectedLanguages.includes(lang.value)) {
@@ -105,9 +108,9 @@ const TargetingRules = (props: Props) => {
     }
   }
 
-  const removeLangFromSelected = (lang: Language) => {
+  const removeLangFromSelected = (lang: string) => {
     const copyList = JSON.parse(JSON.stringify(selectedLanguages))
-    const index: number = selectedLanguages.findIndex((item) => item === lang.value)
+    const index: number = selectedLanguages.findIndex((item) => item === lang)
     copyList.splice(index, 1)
     dispatch(setSelectedLanguages(copyList))
   }
@@ -115,7 +118,7 @@ const TargetingRules = (props: Props) => {
   const selectAllLanguages = (isSelect: boolean) => {
     
     if(isSelect){
-      let allLang:string[] = []
+      const allLang:string[] = []
       languages.forEach(lang => {
         allLang.push(lang.value)
       });
@@ -393,13 +396,14 @@ const TargetingRules = (props: Props) => {
             <div className=" rounded-[8px] border-position-block-border border px-3 mt-[15px] flex space-x-1 flex-wrap">
               {selectedLanguages.map((lang) => {
                 return (
+                  // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                   <div
                     key={lang}
                     onClick={() => removeLangFromSelected(lang)}
                     className="bg-faq-border-color rounded-[6px] m-[3px]  inline-flex items-center pl-3 py-[6px] space-x-4 pr-4 hover:border-lang-red-color hover:border hover:bg-white group hover:cursor-pointer"
                   >
                     <span>
-                      {languages.find((item) => item.value === lang).label}
+                      {languages.find((item) => item.value === lang)!.label }
                     </span>
                     <span className="group-hover:bg-red-500 rounded-full w-[18px] h-[18px] flex items-center justify-center">
                       <svg
