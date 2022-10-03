@@ -1,0 +1,12 @@
+{
+    "git.ignoreLimitWarning": true,
+    "eslint.enable": true,
+    "eslint.validate": [
+        "vue",
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact"
+    ]
+}
