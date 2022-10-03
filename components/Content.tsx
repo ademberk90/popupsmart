@@ -143,10 +143,13 @@ const Content = (props: Props) => {
             />
           </div>
           {[...new Array(areaSize[0]).keys()].map((item) => {
+              type ObjectKey = keyof typeof input;
+              let myVar = ('input' + (item+1)) as ObjectKey;
             return (
+              
               <input
                 key={item}
-                value={input[`input${item + 1}`]}
+                value={input[myVar] as string}
                 className="h-9 rounded-[8px] border-position-block-border border px-3 mt-[15px] focus-visible:outline-none"
                 onChange={(e) => {
                   inputHandleChange(e.target.value, item + 1)
@@ -155,10 +158,12 @@ const Content = (props: Props) => {
             )
           })}
           {[...new Array(areaSize[1]).keys()].map((item) => {
+            type ObjectKey = keyof typeof description;
+            let myVar = ('description' + (item+1)) as ObjectKey;
             return (
               <input
                 key={item}
-                value={description[`description${item + 1}`]}
+                value={description[myVar] as string}
                 className="h-9 rounded-[8px] border-position-block-border border px-3 mt-[15px] focus-visible:outline-none"
                 onChange={(e) => {
                   descriptionHandleChange(e.target.value, item + 1)
@@ -167,10 +172,12 @@ const Content = (props: Props) => {
             )
           })}
           {[...new Array(areaSize[2]).keys()].map((item) => {
+             type ObjectKey = keyof typeof button;
+             let myVar = ('button' + (item+1)) as ObjectKey;
             return (
               <input
                 key={item}
-                value={button[`button${item + 1}`]}
+                value={button[myVar] as string}
                 className="h-9 rounded-[8px] border-position-block-border border px-3 mt-[15px] focus-visible:outline-none"
                 onChange={(e) => {
                   buttonHandleChange(e.target.value, item + 1)

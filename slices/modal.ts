@@ -106,7 +106,7 @@ const initialState: ModalState = {
   webhookUrl: '',
   isSendFromSubmission: false,
   isSendClickData: false,
-  baseUrl : process.env.BASE_URL 
+  baseUrl : process.env.BASE_URL!
 }
 
 export const modalSlice = createSlice({
