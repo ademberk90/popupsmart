@@ -51,14 +51,19 @@ function Pop() {
   let language = navigator.language || navigator.userLanguage
   let lastPositionScrollY = 0
 
-  let createPopUp = function () {
+
+  let addCSS = function (){
     var cssRuleFile = content.baseUrl + '/modalFunctions/modalCSS.css'
     let lnk = document.createElement('link')
     lnk.setAttribute('rel', 'stylesheet')
     lnk.setAttribute('type', 'text/css')
     lnk.setAttribute('href', cssRuleFile)
     document.getElementsByTagName('head')[0].appendChild(lnk)
+  }
 
+  let createPopUp = function () {
+    
+    
     if (!document.getElementById('modal1popup')) {
       const secureSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="44" viewBox="0 0 36 44" fill="none">
     <path d="M23 23.18L24.8 30.94L18 26.84L11.2 30.94L13 23.2L7 18.02L14.92 17.34L18 10.04L21.08 17.32L29 18L23 23.18ZM18 4.38L32 10.6V20C32 29.04 26.04 37.38 18 39.86C9.96 37.38 4 29.04 4 20V10.6L18 4.38ZM18 0L0 8V20C0 31.1 7.68 41.48 18 44C28.32 41.48 36 31.1 36 20V8L18 0Z" fill="white"/>
@@ -293,6 +298,7 @@ function Pop() {
   }
 
   this.init = function (param) {
+    
     console.log(param)
     if (typeof param === 'object') {
       if (param.area.header) content.area.header = param.area.header
@@ -334,7 +340,7 @@ function Pop() {
       if ('imageUrl' in param) content.imageUrl = param.imageUrl
       if ('logoUrl' in param) content.logoUrl = param.logoUrl
       if ('baseUrl' in param) content.baseUrl = param.baseUrl
-
+      addCSS();
       console.log(content)
       if ('size' in param && param.size === 'Small') {
         content.size = '30%'
