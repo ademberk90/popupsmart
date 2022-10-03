@@ -26,7 +26,7 @@ const Modal0 = (props: Props) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(setImageUrl(process.env.BASE_URL + '/upload/defaults/modal0.png'))
+    dispatch(setImageUrl(`${process.env.BASE_URL}/upload/defaults/modal0.png`))
     console.log('dsads ', imageUrl)
   },[])
   return (

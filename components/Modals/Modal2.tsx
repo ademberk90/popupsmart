@@ -25,7 +25,7 @@ const Modal2 = (props: Props) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(setImageUrl(process.env.BASE_URL + '/upload/defaults/modal2.png'))
+    dispatch(setImageUrl(`${process.env.BASE_URL  }/upload/defaults/modal2.png`))
     dispatch(setIsImageExist(true))
     dispatch(setAreaSize([0,1,2]))
     dispatch(setArea({
@@ -55,8 +55,8 @@ const Modal2 = (props: Props) => {
       <div className='inline-flex flex-col items-center justify-center px-[65px] py-10 w-full'>
         <span className='font-bold text-[30px]'>{header}</span>
         <span className='text-xl mt-5'>{description.description1}</span>
-        <button id="input1" className="text-white w-full py-4 rounded-2xl mt-11 border " style={{ backgroundColor: color, color: textColor, borderColor: color === '#FFFFFF' ? "#D2DAE3" : ""}}>{button.button1}</button>
-        <button id="input2" className='w-full py-4 rounded-2xl border border-[#D2DAE3] mt-3'>{button.button2}</button>
+        <button type="button" id="input1" className="text-white w-full py-4 rounded-2xl mt-11 border " style={{ backgroundColor: color, color: textColor, borderColor: color === '#FFFFFF' ? "#D2DAE3" : ""}}>{button.button1}</button>
+        <button type="button" id="input2" className='w-full py-4 rounded-2xl border border-[#D2DAE3] mt-3'>{button.button2}</button>
       </div>
       <button
         type="button"

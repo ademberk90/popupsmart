@@ -26,7 +26,7 @@ const Settings = (props: Props) => {
   useEffect(() => {}, [])
 
   const getYourCode = () => {
-    let codeString: string = prepareCode(allModal)
+    const codeString: string = prepareCode(allModal)
     setCode(codeString)
   }
 
