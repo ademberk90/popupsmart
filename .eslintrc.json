@@ -12,9 +12,12 @@
     ],
     "overrides": [
         {
-            "files": ["*.js"]
-        }
-
+            "files": ["*.js","*.test.tsx"],
+            "env": {
+                "jest": true
+              }
+        },
+        
     ],
     "parserOptions": {
         "ecmaVersion": "latest",

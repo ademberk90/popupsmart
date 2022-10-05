@@ -141,7 +141,7 @@ const Appearance = (props: Props) => {
             )
           })}
         </div>
-        <div className="mt-7 text-sm">Upload Logo</div>
+        {isLogoExist &&   <div className="mt-7 text-sm">Upload Logo</div>}
 
         {isLogoExist && (
           <label

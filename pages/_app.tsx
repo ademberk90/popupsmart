@@ -1,12 +1,12 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
-import { store } from '../store'
+import { setupStore } from '../store'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
   return (
-    <Provider store={store}>
+    <Provider store={setupStore()}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
     </Provider>

@@ -89,7 +89,7 @@ function Pop() {
       <button
         id="cancelButton"
         type="button"
-        class="border-modal1-input-border border rounded-md sm:px-3 md:px-8 py-3 bg-[${content.color}] text-[${content.textColor}]"
+        class="border-modal1-input-border border rounded-md sm:px-3 md:px-8 py-3"
       >
       ${content.area.button.button1}
       </button>
@@ -108,7 +108,7 @@ function Pop() {
       id="closeButton"
       class="absolute top-4 right-4"
     >
-    <img src="http://localhost:3000/modalClose.png">
+    <img src="${content.baseUrl}/modalClose.png" alt=""/>
     </button>
   </div>`
 
